@@ -9,10 +9,10 @@
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--color-text, #333);
+  color: var(--color-text);
 
   .required {
-    color: var(--color-danger, #e74c3c);
+    color: var(--color-danger);
   }
 }
 
@@ -20,7 +20,7 @@
 .form-textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--color-border, #e0e0e0);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   font-size: 14px;
   font-family: inherit;
@@ -32,12 +32,12 @@
 
   &:focus {
     outline: none;
-    border-color: var(--color-primary, #3498db);
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
   }
 
   &--error {
-    border-color: var(--color-danger, #e74c3c);
+    border-color: var(--color-danger);
 
     &:focus {
       box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
@@ -53,7 +53,7 @@
 .form-error {
   margin-top: 4px;
   font-size: 12px;
-  color: var(--color-danger, #e74c3c);
+  color: var(--color-danger);
 }
 
 .btn {
@@ -72,7 +72,7 @@
   }
 
   &:focus:not(:disabled) {
-    outline: 2px solid var(--color-primary, #3498db);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 }
@@ -80,7 +80,7 @@
 .btn-cancel {
   background-color: white;
   color: #666;
-  border: 1px solid var(--color-border, #e0e0e0);
+  border: 1px solid var(--color-border);
 
   &:hover:not(:disabled) {
     background-color: #f5f5f5;
@@ -88,7 +88,7 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary, #3498db);
+  background-color: var(--color-primary);
   color: white;
 
   &:hover:not(:disabled) {

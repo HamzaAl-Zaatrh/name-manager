@@ -5,15 +5,15 @@
   align-items: center;
   padding: 16px 24px;
   background: var(--color-primary-light);
-  border-bottom: 1px solid var(--color-border, #e0e0e0);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 106px;
 
   .search-input {
     padding: 12px 16px;
-    border: 1px solid var(--color-border, #e0e0e0);
+    border: 1px solid var(--color-border);
     border-radius: 4px;
-    width: 300px;
+    max-width: 300px;
     font-size: 14px;
     font-family: inherit;
 
@@ -23,12 +23,12 @@
 
     &:focus {
       outline: none;
-      border-color: var(--color-primary, #3498db);
+      border-color: var(--color-primary);
     }
   }
 
   .add-btn {
-    background: var(--color-primary, #3498db);
+    background: var(--color-primary);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -45,7 +45,7 @@
     }
 
     &:focus {
-      outline: 2px solid var(--color-primary, #3498db);
+      outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
   }
@@ -60,7 +60,7 @@
     align-items: center;
     padding: 16px 24px;
     background: white;
-    border: 1px solid var(--color-border, #e0e0e0);
+    border: 1px solid var(--color-border);
     margin-bottom: 8px;
 
     .investor-info {
@@ -70,7 +70,7 @@
         margin: 0;
         font-size: 16px;
         font-weight: 500;
-        color: var(--color-text, #333);
+        color: var(--color-text);
       }
     }
 
@@ -80,7 +80,7 @@
       gap: 12px;
 
       .separator {
-        color: var(--color-border, #e0e0e0);
+        color: var(--color-border);
         user-select: none;
       }
 
@@ -93,11 +93,11 @@
         font-weight: 500;
 
         &.edit-btn {
-          color: var(--color-primary, #3498db);
+          color: var(--color-primary);
         }
 
         &.delete-btn {
-          color: var(--color-danger, #e74c3c);
+          color: var(--color-danger);
         }
 
         &:hover {

@@ -16,7 +16,7 @@
   margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: bold;
-  color: var(--color-text, #333);
+  color: var(--color-text);
 }
 
 .sidebar-nav {
@@ -27,7 +27,7 @@
   .nav-group-title {
     font-size: 14px;
     font-weight: 700;
-    color: var(--color-text, #333);
+    color: var(--color-text);
     padding: 12px 16px;
     text-transform: none;
   }
@@ -53,13 +53,13 @@
 
     &:hover {
       background-color: var(--color-primary-medium);
-      color: var(--color-primary, #3498db);
+      color: var(--color-primary);
     }
 
     &--active {
       background-color: var(--color-primary-medium);
       font-weight: 500;
-      border-right: 3px solid var(--color-primary, #3498db);
+      border-right: 3px solid var(--color-primary);
     }
   }
 }
@@ -72,7 +72,7 @@
   height: 30px;
   border-radius: 50%;
   background-color: white;
-  border: 1px solid var(--color-border, #e0e0e0);
+  border: 1px solid var(--color-border);
   cursor: pointer;
   display: none;
   align-items: center;
@@ -85,14 +85,14 @@
   }
 
   &:focus {
-    outline: 2px solid var(--color-primary, #3498db);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 }
 
 .toggle-icon {
   font-size: 12px;
-  color: var(--color-text, #333);
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {
