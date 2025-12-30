@@ -1,10 +1,23 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, map } from 'rxjs';
 import { NavigationConfig, NavigationSection } from '../models/navigation.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NavigationService {
+  private router = inject(Router);
+
+  private currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e) => e.urlAfterRedirects),
+    ),
+    { initialValue: this.router.url },
+  );
+
   // This configuration can be replaced with data from backend API
   private navigationConfig = signal<NavigationConfig>({
     mainNav: [
@@ -35,8 +48,12 @@ export class NavigationService {
     ],
   });
 
-  // Active section (selected main nav tab)
-  activeSection = signal<string>('settings');
+  // Active section (selected main nav tab) - derived from current URL
+  activeSection = computed(() => {
+    const url = this.currentUrl();
+    const section = this.getSectionByRoute(url);
+    return section?.id || '';
+  });
 
   // Get all main navigation sections
   mainNavigation = computed(() => this.navigationConfig().mainNav);
@@ -49,25 +66,13 @@ export class NavigationService {
   });
 
   /**
-   * Set the active navigation section
-   * This is typically called when user clicks on main nav tabs
-   */
-  setActiveSection(sectionId: string): void {
-    this.activeSection.set(sectionId);
-  }
-
-  /**
    * Load navigation configuration from backend
    * This method should be called during app initialization
    * to fetch navigation structure from API
    */
   async loadNavigationFromBackend(): Promise<void> {
-    // TODO: Replace with actual API call
     // const config = await this.http.get<NavigationConfig>('/api/navigation').toPromise();
     // this.navigationConfig.set(config);
-
-    // For now, we use the hardcoded config above
-    console.log('Navigation loaded from local configuration');
   }
 
   /**

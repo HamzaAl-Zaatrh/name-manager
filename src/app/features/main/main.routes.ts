@@ -17,7 +17,7 @@ export default <Routes>[
       },
       {
         path: '**',
-        redirectTo: 'dashboard',
+        redirectTo: 'settings',
       },
     ],
   },

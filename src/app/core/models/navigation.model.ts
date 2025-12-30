@@ -4,8 +4,6 @@ export interface NavigationItem {
   icon?: string;
   route?: string;
   children?: NavigationItem[];
-  badge?: string;
-  badgeColor?: string;
 }
 
 export interface NavigationSection {
