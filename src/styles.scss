@@ -46,8 +46,6 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Links */
@@ -80,7 +78,7 @@ select {
   font-size: inherit;
 }
 
-/* Scrollbar Styling (optional) */
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -99,41 +97,11 @@ select {
   }
 }
 
-/* Utility Classes */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Container */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 /* Responsive Images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-/* Print Styles */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
 }
 
 .modal-body {
