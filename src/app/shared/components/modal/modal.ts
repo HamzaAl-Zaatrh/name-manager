@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, ElementRef, input, output, viewChild } from '@angular/core';
 import { Icon } from '@app/shared/components/icon/icon';
 
 @Component({
@@ -13,8 +13,26 @@ export class Modal {
   isOpen = input.required<boolean>();
   close = output<void>();
 
-  onBackdropClick(): void {
-    this.close.emit();
+  readonly dialogElement = viewChild.required<ElementRef<HTMLDialogElement>>('dialogElement');
+
+  constructor() {
+    // Effect to sync isOpen signal with dialog state
+    effect(() => {
+      const dialogRef = this.dialogElement();
+      if (!dialogRef) return;
+
+      const dialog = dialogRef.nativeElement;
+
+      if (this.isOpen()) {
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+      } else {
+        if (dialog.open) {
+          dialog.close();
+        }
+      }
+    });
   }
 
   onCloseClick(): void {

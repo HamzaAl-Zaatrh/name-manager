@@ -1,26 +1,30 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.2s ease-in-out;
+.modal-dialog {
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+
+  // Animation for dialog content
+  &[open] {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  // Backdrop styles (replaces .modal-overlay)
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.2s ease-in-out;
+  }
 }
 
 .modal-content {
   background-color: white;
-  border-radius: 4px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  animation: slideIn 0.3s ease-out;
 }
 
 .modal-header {
