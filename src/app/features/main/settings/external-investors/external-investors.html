@@ -1,0 +1,75 @@
+<!-- Top Bar -->
+<div class="top-bar">
+  <button class="add-btn" (click)="openAddModal()">
+    <app-icon [name]="'plus'" [size]="'small'" />
+    <span>إضافة</span>
+  </button>
+
+  <input
+    type="text"
+    class="search-input"
+    placeholder="ابحث عن الاسم"
+    [value]="searchTerm()"
+    (input)="onSearchChange($event)"
+  />
+</div>
+
+<!-- List Display -->
+<div class="investors-list">
+  @if (investors().length === 0) {
+    <div class="empty-state">لا توجد بيانات</div>
+  } @else {
+    @for (investor of investors(); track investor.id) {
+      <div class="investor-item">
+        <div class="investor-info">
+          <h3>{{ investor.name }}</h3>
+        </div>
+        <div class="investor-actions">
+          <span class="separator">|</span>
+          <button class="edit-btn" (click)="onEditClick(investor)">
+            <app-icon [name]="'edit'" [size]="'small'" />
+            تعديل
+          </button>
+
+          <button class="delete-btn" (click)="onDeleteClick(investor.id)">
+            <app-icon [name]="'delete'" [size]="'small'" />
+            حذف
+          </button>
+        </div>
+      </div>
+    }
+  }
+</div>
+
+<!-- Add Modal -->
+@if (isAddModalOpen()) {
+  <app-modal [title]="'إضافة الاسم'" [isOpen]="isAddModalOpen()" (close)="closeAddModal()">
+    <app-add-external-investors
+      [mode]="'add'"
+      (submitForm)="onAddSubmit($event)"
+      (cancel)="closeAddModal()"
+    />
+  </app-modal>
+}
+
+<!-- Edit Modal -->
+@if (isEditModalOpen() && selectedInvestor()) {
+  <app-modal [title]="'تعديل على الاسم'" [isOpen]="isEditModalOpen()" (close)="closeEditModal()">
+    <app-add-external-investors
+      [mode]="'edit'"
+      [investor]="selectedInvestor()!"
+      (submitForm)="onEditSubmit($event)"
+      (cancel)="closeEditModal()"
+    />
+  </app-modal>
+}
+
+<!-- Delete Confirmation Modal -->
+@if (isDeleteModalOpen() && selectedInvestor()) {
+  <app-delete-confirmation
+    [isOpen]="isDeleteModalOpen()"
+    [itemName]="selectedInvestor()!.name"
+    (confirm)="onDeleteConfirm()"
+    (cancel)="closeDeleteModal()"
+  />
+}

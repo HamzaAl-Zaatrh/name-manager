@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-right">
+      <h1 class="app-title">السجلات</h1>
+    </div>
+
+    <div class="header-left">
+      <div class="user-profile">
+        <span class="user-name">شريف محمد</span>
+        <div class="user-avatar">
+          <img ngSrc="img/avatar.png" alt="User Avatar" height="50" width="50" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <ul class="nav-tabs">
+      @for (section of mainNavigation(); track section.id) {
+        <li
+          class="nav-tab"
+          [class.nav-tab--active]="activeSection() === section.id"
+          (click)="onNavClick(section.id)"
+        >
+          {{ section.label }}
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

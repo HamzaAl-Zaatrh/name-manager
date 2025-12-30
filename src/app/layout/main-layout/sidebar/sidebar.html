@@ -1,0 +1,57 @@
+@if (hasSidebarChildren()) {
+  <aside class="sidebar" [class.sidebar--open]="isOpen()">
+    <div class="sidebar-content">
+      <nav class="sidebar-nav">
+        @for (item of activeSectionChildren(); track item.id) {
+          @if (hasChildren(item)) {
+            <!-- Group with nested children -->
+            <div class="nav-group">
+              <h3 class="nav-group-title">{{ item.label }}</h3>
+              <ul class="nav-list">
+                @for (child of item.children; track child.id) {
+                  <li class="nav-item">
+                    @if (child.route) {
+                      <a
+                        [routerLink]="child.route"
+                        routerLinkActive="nav-link--active"
+                        class="nav-link"
+                      >
+                        {{ child.label }}
+                      </a>
+                    } @else {
+                      <span class="nav-link">{{ child.label }}</span>
+                    }
+                  </li>
+                }
+              </ul>
+            </div>
+          } @else {
+            <!-- Direct link item -->
+            <ul class="nav-list">
+              <li class="nav-item">
+                @if (item.route) {
+                  <a [routerLink]="item.route" routerLinkActive="nav-link--active" class="nav-link">
+                    {{ item.label }}
+                  </a>
+                } @else {
+                  <span class="nav-link">{{ item.label }}</span>
+                }
+              </li>
+            </ul>
+          }
+        }
+      </nav>
+    </div>
+
+    <button
+      type="button"
+      class="sidebar-toggle"
+      (click)="toggle()"
+      aria-label="فتح/إغلاق القائمة الجانبية"
+    >
+      <span class="toggle-icon">
+        <app-icon [name]="isOpen() ? 'arrow-right' : 'arrow-left'" [size]="'small'" />
+      </span>
+    </button>
+  </aside>
+}

@@ -1,0 +1,54 @@
+.delete-confirmation {
+  text-align: center;
+}
+
+.delete-message {
+  font-size: 16px;
+  color: var(--color-text, #333);
+  margin-bottom: 12px;
+  line-height: 1.5;
+
+  strong {
+    color: var(--color-danger, #e74c3c);
+  }
+}
+
+.delete-warning {
+  font-size: 14px;
+  color: #666;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 100px;
+
+  &:focus {
+    outline: 2px solid var(--color-primary, #3498db);
+    outline-offset: 2px;
+  }
+}
+
+.btn-cancel {
+  background-color: white;
+  color: #666;
+  border: 1px solid var(--color-border, #e0e0e0);
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+.btn-danger {
+  background-color: var(--color-danger, #e74c3c);
+  color: white;
+
+  &:hover {
+    background-color: #c0392b;
+  }
+}

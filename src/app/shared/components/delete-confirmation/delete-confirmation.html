@@ -1,0 +1,14 @@
+<app-modal [title]="'تأكيد الحذف'" [isOpen]="isOpen()" (close)="onCancel()">
+  <div class="delete-confirmation">
+    <div class="modal-body">
+      <p class="delete-message">
+        هل أنت متأكد من حذف <strong>"{{ itemName() }}"</strong>؟
+      </p>
+      <p class="delete-warning">لا يمكن التراجع عن هذا الإجراء.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="onConfirm()">حذف</button>
+      <button type="button" class="btn btn-cancel" (click)="onCancel()">إلغاء</button>
+    </div>
+  </div>
+</app-modal>

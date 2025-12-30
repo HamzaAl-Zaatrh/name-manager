@@ -1,0 +1,25 @@
+:host {
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.icon {
+  color: currentColor;
+
+  &--primary {
+    color: var(--color-primary);
+  }
+
+  &--danger {
+    color: var(--color-danger);
+  }
+
+  &--success {
+    color: var(--color-success);
+  }
+
+  &--white {
+    color: white;
+  }
+}

@@ -1,0 +1,8 @@
+.app-container {
+  display: flex;
+
+  main {
+    flex: 1;
+    min-height: calc(100vh - 106px);
+  }
+}
